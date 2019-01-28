@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="es.ull.hpcg.matrix-jar-app.main" target="1.8" />
+      <module name="es.ull.hpcg.matrix-jar-app.test" target="1.8" />
       <module name="matrix-jar-app.main" target="1.8" />
       <module name="matrix-jar-app.test" target="1.8" />
     </bytecodeTargetLevel>
