@@ -17,7 +17,7 @@ plugins {
 
 
 group 'es.ull.hpcg'
-version '0.1'
+version '0.1.1'
 
 
 jar {
@@ -38,7 +38,7 @@ repositories {
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    implementation 'es.ull.hpcg:matrix-lib:0.1'
+    implementation 'es.ull.hpcg:matrix-lib:0.2'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
