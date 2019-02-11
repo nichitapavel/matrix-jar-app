@@ -3,6 +3,7 @@
 ## Requirements
 - [gradle 5.1](https://gradle.org/releases/)
 - [oracle/open jdk => v1.8_u191](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+(Works with v1.6 too)
 
 ## Instructions
 After cloning use these commands to compile
@@ -29,4 +30,4 @@ By default the generated binary uses java runtime returned from `which java`, us
 to use Oracle JRE you must specify JAVA_HOME to that runtime, i.e.: `JAVA_HOME=/opt/jre1.8.0_202 ./matrix-jar-app 10 10
  true`
 
-## Current version: 0.1.1
+## Current version: 0.2

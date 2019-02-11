@@ -4,6 +4,7 @@
 package matrix.jar.app;
 
 import matrix.lib.Matrix;
+import matrix.lib.TimeController;
 
 public class App {
     public static void main(String[] args) {
@@ -17,11 +18,27 @@ public class App {
             System.out.println("Something is wrong with your arguments");
         }
 
+        TimeController timeCon = new TimeController();
+        StringBuilder message = new StringBuilder();
+        message.append(
+                String.format("Input data:\nMatrix size: %d\t Matrix module: %d\t Matrix print: %b", size, module, print)
+        );
+
         Matrix matrix_a = new Matrix(size);
-        matrix_a.fill(module);
+        matrix_a.fill(module, timeCon);
+        timeCon.setName("Matrix fill A");
+        message.append(timeCon);
+
         Matrix matrix_b = new Matrix(size);
-        matrix_b.fill(module);
-        Matrix matrix_computed = matrix_a.multiply(matrix_b);
+        matrix_b.fill(module, timeCon);
+        timeCon.setName("Matrix fill B");
+        message.append(timeCon);
+
+        Matrix matrix_computed = matrix_a.multiply(matrix_b, timeCon);
+        timeCon.setName("Matrix compute");
+        message.append(timeCon);
+
+        System.out.println(message);
 
         if (print) {
             System.out.println("Matrix A");
