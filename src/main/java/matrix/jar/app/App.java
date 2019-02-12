@@ -16,12 +16,13 @@ public class App {
             print = Boolean.parseBoolean(args[2]);
         } catch (Exception ex) {
             System.out.println("Something is wrong with your arguments");
+            System.exit(1);
         }
 
         TimeController timeCon = new TimeController();
         StringBuilder message = new StringBuilder();
         message.append(
-                String.format("Input data:\nMatrix size: %d\t Matrix module: %d\t Matrix print: %b", size, module, print)
+                String.format("Input data:\nMatrix size: %d\t Matrix module: %d\t Matrix print: %b\n", size, module, print)
         );
 
         Matrix matrix_a = new Matrix(size);
