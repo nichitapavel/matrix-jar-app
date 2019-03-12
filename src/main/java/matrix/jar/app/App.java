@@ -3,40 +3,67 @@
  */
 package matrix.jar.app;
 
+import matrix.lib.HTTPData;
 import matrix.lib.Matrix;
+import matrix.lib.Operation;
 import matrix.lib.TimeController;
+
 
 public class App {
     public static void main(String[] args) {
         int size = 0, module = 0;
         boolean print = false;
+        String base_url = "";
         try {
             size = Integer.parseInt(args[0]);
             module = Integer.parseInt(args[1]);
             print = Boolean.parseBoolean(args[2]);
+            base_url = args[3];
         } catch (Exception ex) {
             System.out.println("Something is wrong with your arguments");
             System.exit(1);
         }
 
         TimeController timeCon = new TimeController();
+        HTTPData req = new HTTPData(base_url);
         StringBuilder message = new StringBuilder();
         message.append(
                 String.format("Input data:\nMatrix size: %d\t Matrix module: %d\t Matrix print: %b\n", size, module, print)
         );
 
         Matrix matrix_a = new Matrix(size);
-        matrix_a.fill(module, timeCon);
         timeCon.setName("Matrix fill A");
+        timeCon.snapStart();
+        req.setData(timeCon.getStart(), Operation.AS);
+        req.sendData();
+        matrix_a.fill(module);
+        timeCon.snapFinish();
+        req.setData(timeCon.getFinish(), Operation.AF);
+        req.sendData();
+
         message.append(timeCon);
 
         Matrix matrix_b = new Matrix(size);
-        matrix_b.fill(module, timeCon);
         timeCon.setName("Matrix fill B");
+        timeCon.snapStart();
+        req.setData(timeCon.getStart(), Operation.BS);
+        req.sendData();
+        matrix_b.fill(module);
+        timeCon.snapFinish();
+        req.setData(timeCon.getFinish(), Operation.BF);
+        req.sendData();
+
         message.append(timeCon);
 
-        Matrix matrix_computed = matrix_a.multiply(matrix_b, timeCon);
         timeCon.setName("Matrix compute");
+        timeCon.snapStart();
+        req.setData(timeCon.getStart(), Operation.XS);
+        req.sendData();
+        Matrix matrix_computed = matrix_a.multiply(matrix_b);
+        timeCon.snapFinish();
+        req.setData(timeCon.getFinish(), Operation.XF);
+        req.sendData();
+
         message.append(timeCon);
 
         System.out.println(message);
