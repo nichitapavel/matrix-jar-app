@@ -3,10 +3,7 @@
  */
 package matrix.jar.app;
 
-import matrix.lib.HTTPData;
-import matrix.lib.Matrix;
-import matrix.lib.Operation;
-import matrix.lib.TimeController;
+import matrix.lib.*;
 
 
 public class App {
@@ -26,6 +23,9 @@ public class App {
 
         TimeController timeCon = new TimeController();
         HTTPData req = new HTTPData(base_url);
+        req.setName(
+                new HostInfo().getName()
+        );
         StringBuilder message = new StringBuilder();
         message.append(
                 String.format("Input data:\nMatrix size: %d\t Matrix module: %d\t Matrix print: %b\n", size, module, print)
@@ -77,4 +77,5 @@ public class App {
             System.out.println(matrix_computed);
         }
     }
+
 }
