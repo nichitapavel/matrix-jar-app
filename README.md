@@ -14,7 +14,8 @@ Make use of the compiled app:
 - go to *build/distributions/*
 - extract either **.zip** or **.tar** archive
 - go to *matrix-jar-app-<version>/bin/*, here are the executables **matrix-jar-app**/**matrix-jar-app.bat**
-- execute by typing `./matrix-jar-app 10 10 true` or `matrix-jar-app.bat 10 10 true` 
+- execute by typing `./matrix-jar-app 10 10 true` or `matrix-jar-app.bat 10 10 true`
+- current version will multiply matrixes with datatype of float
 
 
 ## Arguments
@@ -30,4 +31,4 @@ By default the generated binary uses java runtime returned from `which java`, us
 to use Oracle JRE you must specify JAVA_HOME to that runtime, i.e.: `JAVA_HOME=/opt/jre1.8.0_202 ./matrix-jar-app 10 10
  true`
 
-## Current version: 0.3
+## Current version: 0.4
