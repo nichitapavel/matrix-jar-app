@@ -31,7 +31,7 @@ public class App {
                 String.format("Input data:\nMatrix size: %d\t Matrix module: %d\t Matrix print: %b\n", size, module, print)
         );
 
-        Matrix matrix_a = new Matrix(size);
+        AMatrix matrix_a = new MatrixFloat(size);
         timeCon.setName("Matrix fill A");
         timeCon.snapStart();
         req.setData(timeCon.getStart(), Operation.AS);
@@ -43,7 +43,7 @@ public class App {
 
         message.append(timeCon);
 
-        Matrix matrix_b = new Matrix(size);
+        AMatrix matrix_b = new MatrixFloat(size);
         timeCon.setName("Matrix fill B");
         timeCon.snapStart();
         req.setData(timeCon.getStart(), Operation.BS);
@@ -55,11 +55,17 @@ public class App {
 
         message.append(timeCon);
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         timeCon.setName("Matrix compute");
         timeCon.snapStart();
         req.setData(timeCon.getStart(), Operation.XS);
         req.sendData();
-        Matrix matrix_computed = matrix_a.multiply(matrix_b);
+        AMatrix matrix_computed = matrix_a.multiply(matrix_b);
         timeCon.snapFinish();
         req.setData(timeCon.getFinish(), Operation.XF);
         req.sendData();
