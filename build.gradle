@@ -17,7 +17,7 @@ plugins {
 
 
 group 'es.ull.hpcg'
-version '0.4.1-int'
+version '0.5-beta-01'
 
 
 jar {
@@ -39,6 +39,7 @@ repositories {
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'es.ull.hpcg:matrix-lib:0.5.1'
+    implementation group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'

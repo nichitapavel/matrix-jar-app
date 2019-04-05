@@ -5,24 +5,20 @@ package matrix.jar.app;
 
 import matrix.lib.*;
 
+import java.util.Map;
+
 
 public class App {
     public static void main(String[] args) {
-        int size = 0, module = 0;
-        boolean print = false;
-        String base_url = "";
-        try {
-            size = Integer.parseInt(args[0]);
-            module = Integer.parseInt(args[1]);
-            print = Boolean.parseBoolean(args[2]);
-            base_url = args[3];
-        } catch (Exception ex) {
-            System.out.println("Something is wrong with your arguments");
-            System.exit(1);
-        }
+        Map parsedArgs = Parser.parse(args);
+
+        int size = (int) parsedArgs.get("size");
+        int module = (int) parsedArgs.get("module");
+
+        boolean print = (boolean) parsedArgs.get("print");
 
         TimeController timeCon = new TimeController();
-        HTTPData req = new HTTPData(base_url);
+        HTTPData req = new HTTPData(parsedArgs.get("http_endpoint").toString());
         req.setName(
                 new HostInfo().getName()
         );
