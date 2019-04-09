@@ -24,11 +24,11 @@ public class Parser {
                 .type(int.class)
                 .required(true);
         parser.addArgument("-p", "--print")
-                .help("Print the all matrixes")
+                .help("Print all matrixes")
                 .setDefault(Arguments.storeFalse())
                 .action(Arguments.storeTrue());
         parser.addArgument("-e", "--http-endpoint").
-                help("HTTP endpoint to mark when operations start and finish")
+                help("HTTP endpoint to mark when fill and multiplication operations start and finish")
                 .type(String.class);
 
         Namespace ns = null;
