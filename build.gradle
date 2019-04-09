@@ -17,7 +17,7 @@ plugins {
 
 
 group 'es.ull.hpcg'
-version '0.5.1-int'
+version '0.5.1-roundup'
 
 
 jar {
