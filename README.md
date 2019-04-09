@@ -19,11 +19,14 @@ Make use of the compiled app:
 
 
 ## Arguments
-The app has 3 arguments, all are required
-- **String** type **Integer** tells the size of the matrixes (only square matrixes are possible)
-- **String** type **Integer** tells the maximum value of a coordinate, i.e.: if this value is 40 you will never have in the 
-matrix a number equal or higher to 40
-- **String** type **boolean** `false` or `true` tells if you want the matrixes to be printed
+The app has 4 arguments, 3 are required.
+- `-s|--size` _(Required)_ **String** type **Integer** tells the size of the matrixes
+(only square matrixes are possible).
+- `-m|--module` _(Required)_ **String** type **Integer** tells the maximum value of a coordinate,
+i.e.: if this value is 40 you will never have in the matrix A and B a number equal or higher to 40.
+- `-e|--http-endpoint` _(Required)_ **String** type **URL** `http://192.168.26.5:5001/message` tells where
+devices must send HTTP requests to mark current operation.
+- `-p|--print` _(Optional)_ tells if you want the matrixes to be printed, no value required.
 
 
 ## Oracle vs Open JRE
@@ -31,4 +34,4 @@ By default the generated binary uses java runtime returned from `which java`, us
 to use Oracle JRE you must specify JAVA_HOME to that runtime, i.e.: `JAVA_HOME=/opt/jre1.8.0_202 ./matrix-jar-app 10 10
  true`
 
-## Current version: 0.4
+## Current version: 0.5
